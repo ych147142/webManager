@@ -1,0 +1,23 @@
+package com.neuedu.controller;
+
+import com.neuedu.service.IProductService;
+import com.neuedu.service.IUserService;
+import com.neuedu.service.ProductServiceImpl;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@WebServlet("/doDelet")
+public class DoDeleteServlet extends HttpServlet {
+    IProductService service = new ProductServiceImpl();
+    @Override
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id =Integer.parseInt(req.getParameter("productId"));
+        service.dele(id);
+        resp.sendRedirect("delet");
+    }
+}
