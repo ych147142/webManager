@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/style_list.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
 
@@ -18,36 +18,66 @@
 </head>
 
 <body>
+<div class="body">
     <nav class="menu">
-        <header>欢迎${user.username} <span>×</span></header>
+        <header>欢迎
+            <a href="exit"><img src="img/退出.png" width="30px" /></a>
+        </header>
         <ol>
             <li class="menu-item">
-                <a href="list">Home</a>
+                <a href="list">主页</a>
             </li>
             <li class="menu-item">
-                <a href="add">insert</a>
+                <a href="profile">修改密码</a>
             </li>
             <li class="menu-item">
-                <a href="delet">delete</a>
+                <a href="#">商品管理</a>
+                <ul class="menu_hide">
+                    <li>
+                        <a href="add">添加</a>
+                    </li>
+                    <li>
+                        <a href="update">修改</a>
+                    </li>
+                    <li>
+                        <a href="">查询</a>
+                    </li>
+                    <li>
+                        <a href="delet">删除</a>
+                    </li>
+
+                </ul>
             </li>
             <li class="menu-item">
-                <a href="update">update</a>
+                <a href="">品牌管理</a>
+                <ul class="menu_hide">
+                    <li>
+                        <a href="add">添加</a>
+                    </li>
+                    <li>
+                        <a href="update">修改</a>
+                    </li>
+                    <li>
+                        <a href="">查询</a>
+                    </li>
+                    <li>
+                        <a href="delet">删除</a>
+                    </li>
+
+                </ul>
             </li>
-            <li class="menu-item">
-                <a href="#0">select</a>
-            </li>
-            <li class="menu-item">
-                <a href="exit">Exit</a>
-            </li>
+
         </ol>
-        <footer><button aria-label="Toggle Menu">Toggle</button></footer>
 
     </nav>
-    <div class="main">
+    <div class="main" style="left: 500px">
         <form action="doAdd" method="post" enctype="multipart/form-data">
             <input type="text" name="name" placeholder="商品名称">
+            <input type="text" name="bid" placeholder="品牌编号">
+
             <input type="text" name="price" placeholder="商品价格">
             <input type="text" name="des" placeholder="商品描述">
+            <input type="text" name="count" placeholder="库存">
             <input type="file" name="url" placeholder="商品图片" onchange="imgChange(this)">
             <img id="img" width="100">
 
@@ -68,6 +98,7 @@
                 reader.readAsDataURL(obj.files[0]);
         }
     </script>
+</div>
 </body>
 
 

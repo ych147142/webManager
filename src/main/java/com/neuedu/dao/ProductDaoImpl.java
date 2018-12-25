@@ -16,12 +16,13 @@ public class ProductDaoImpl implements IProductDao {
             public Product RowMapping(ResultSet rs) {
                 Product p = new Product();
                 try {
-
                     p.setProductId(rs.getInt("product_id"));
                     p.setProductName(rs.getString("product_name"));
                     p.setProductDes(rs.getString("product_des"));
                     p.setUrl(rs.getString("url"));
                     p.setPrice(rs.getDouble("price"));
+                    p.setBrandId(rs.getInt("brand_id"));
+                    p.setCount(rs.getInt("count"));
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -34,7 +35,7 @@ public class ProductDaoImpl implements IProductDao {
 
     @Override
     public int add(Product product) {
-        return JdbcUtil.executeUpdate("insert into product(product_name,price,product_des,url) values(?,?,?,?)",product.getProductName(),product.getPrice(),product.getProductDes(),product.getUrl());
+        return JdbcUtil.executeUpdate("insert into product(product_name,price,product_des,url,brand_id,count) values(?,?,?,?,?,?)",product.getProductName(),product.getPrice(),product.getProductDes(),product.getUrl(),product.getBrandId(),product.getCount());
     }
 
     @Override
@@ -59,6 +60,8 @@ public class ProductDaoImpl implements IProductDao {
                     p.setProductDes(rs.getString("product_des"));
                     p.setUrl(rs.getString("url"));
                     p.setPrice(rs.getDouble("price"));
+                    p.setBrandId(rs.getInt("brand_id"));
+                    p.setCount(rs.getInt("count"));
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -80,6 +83,8 @@ public class ProductDaoImpl implements IProductDao {
                     p.setProductDes(rs.getString("product_des"));
                     p.setUrl(rs.getString("url"));
                     p.setPrice(rs.getDouble("price"));
+                    p.setBrandId(rs.getInt("brand_id"));
+                    p.setCount(rs.getInt("count"));
 
                 } catch (SQLException e) {
                     e.printStackTrace();

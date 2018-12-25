@@ -22,6 +22,8 @@ public class DoAddServlet extends HttpServlet {
         resp.setHeader("content-type","text/html;charset = UTF-8");
         String name = req.getParameter("name");
         Double price =Double.parseDouble(req.getParameter("price"));
+        int bId = Integer.parseInt(req.getParameter("bId"));
+        int count = Integer.parseInt(req.getParameter("count"));
 
         /*
          * 图片上传
@@ -49,9 +51,8 @@ public class DoAddServlet extends HttpServlet {
         p.setPrice(price);
         p.setUrl(url);
         p.setProductDes(des);
-
-
-
+        p.setBrandId(bId);
+        p.setCount(count);
 
         service.add(p);
         resp.sendRedirect("list");
