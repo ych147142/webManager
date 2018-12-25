@@ -40,7 +40,7 @@
 
         table tbody td a {
             text-decoration: none;
-            color: #fff;
+            color: #000;
         }
     </style>
 </head>

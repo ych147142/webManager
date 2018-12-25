@@ -9,4 +9,6 @@ public interface IProductService {
     public List<Product> getResults(String text);
     public int dele(int id);
     public int add(Product product);
+    public Product getOne(int id);
+    public int update(Product product);
 }

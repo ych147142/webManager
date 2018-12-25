@@ -40,7 +40,8 @@
 
         table tbody td a {
             text-decoration: none;
-            color: #fff;
+            color: #000;
+            font-size: 15px;
         }
     </style>
 </head>
@@ -54,7 +55,7 @@
                 <a href="list">Home</a>
             </li>
             <li class="menu-item">
-                <a href="#add">insert</a>
+                <a href="add">insert</a>
             </li>
             <li class="menu-item">
                 <a href="delet">delete</a>

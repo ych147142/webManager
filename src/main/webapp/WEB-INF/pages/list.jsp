@@ -49,6 +49,9 @@
                 <a href="list">Home</a>
             </li>
             <li class="menu-item">
+                <a href="profile">Edit Profile</a>
+            </li>
+            <li class="menu-item">
                 <a href="add">insert</a>
             </li>
             <li class="menu-item">

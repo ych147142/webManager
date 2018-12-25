@@ -36,6 +36,9 @@
             <li class="menu-item">
                 <a href="#0">select</a>
             </li>
+            <li class="menu-item">
+                <a href="exit">Exit</a>
+            </li>
         </ol>
         <footer><button aria-label="Toggle Menu">Toggle</button></footer>
 

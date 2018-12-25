@@ -39,7 +39,7 @@ public class ProductDaoImpl implements IProductDao {
 
     @Override
     public int update(Product product) {
-        return 0;
+        return JdbcUtil.executeUpdate("update product set product_name=?,product_des=?,url=?,price=? where product_id=?",product.getProductName(),product.getProductDes(),product.getUrl(),product.getPrice(),product.getProductId());
     }
 
     @Override
@@ -66,5 +66,26 @@ public class ProductDaoImpl implements IProductDao {
                 return p;
             }
         }, text);
+    }
+
+    @Override
+    public Product getOne(int id) {
+        return JdbcUtil.queryOne("select * from product where product_id=?", new RowMap<Product>() {
+            @Override
+            public Product RowMapping(ResultSet rs) {
+                Product p = new Product();
+                try {
+                    p.setProductId(rs.getInt("product_id"));
+                    p.setProductName(rs.getString("product_name"));
+                    p.setProductDes(rs.getString("product_des"));
+                    p.setUrl(rs.getString("url"));
+                    p.setPrice(rs.getDouble("price"));
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                return p;
+            }
+        }, id);
     }
 }
