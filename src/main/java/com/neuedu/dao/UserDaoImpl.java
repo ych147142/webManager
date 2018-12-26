@@ -33,4 +33,10 @@ public class UserDaoImpl implements IUserDao {
         }, username);
     }
 
+    @Override
+    public int updatePwd(User user) {
+        return JdbcUtil.executeUpdate("update user set password = where username = ?",user.getPassword(),user.getUsername());
+    }
+
+
 }

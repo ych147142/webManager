@@ -3,7 +3,8 @@ package com.neuedu.service;
 import com.neuedu.dao.IProductDao;
 import com.neuedu.dao.ProductDaoImpl;
 import com.neuedu.pojo.Product;
-import com.neuedu.utilTest.JdbcUtil;
+import com.neuedu.pojo.ResultData;
+
 
 import java.util.List;
 
@@ -14,10 +15,6 @@ public class ProductServiceImpl implements IProductService {
         return dao.getList();
     }
 
-    @Override
-    public List<Product> getResults(String text) {
-        return dao.listResluts(text);
-    }
 
     @Override
     public int dele(int id) {
@@ -37,6 +34,35 @@ public class ProductServiceImpl implements IProductService {
     @Override
     public int update(Product product) {
         return dao.update(product);
+    }
+
+    @Override
+    public int brandDele(int brandId) {
+        return dao.brandDele(brandId);
+    }
+
+
+    @Override
+    public ResultData getLists(int pageNo, int pageSize) {
+        ResultData data = new ResultData(pageNo,pageSize,dao.getCount());
+        data.setLists(dao.getLists(pageNo,pageSize));
+        return data;
+    }
+
+    @Override
+    public List<Product> getResults(String text) {
+        if(text==null){
+            return dao.getList();
+        }else{
+            return dao.getResults(text);
+        }
+
+    }
+    @Override
+    public ResultData getLists(int pageNo, int pageSize, String text) {
+        ResultData data = new ResultData(pageNo,pageSize,dao.getCount(text));
+        data.setLists(dao.getLists(pageNo,pageSize,text));
+        return data;
     }
 
 

@@ -9,6 +9,12 @@ public interface IProductDao {
     public int add(Product product);
     public int update(Product product);
     public int dele(int id);
-    public List<Product> listResluts(String text);
     public Product getOne(int id);
+    public int brandDele(int brandId);
+
+    public List<Product> getResults(String text);
+    public List<Product> getLists(int pageNo, int pageSize);
+    public List<Product> getLists(int pageNo, int pageSize,String text);
+    public int getCount();
+    public int getCount(String text);
 }

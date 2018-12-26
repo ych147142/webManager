@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
-  Date: 2018/12/24
-  Time: 8:15
+  Date: 2018/12/26
+  Time: 16:38
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
@@ -12,6 +12,9 @@
     <title>Title</title>
     <link rel="stylesheet" href="css/style_list.css">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+
+    </style>
 </head>
 
 <body>
@@ -68,37 +71,17 @@
 
     </nav>
     <div class="main" style="left: 500px">
-        <form action="updateOver"  enctype="multipart/form-data">
-            <input type="text" readonly="readonly" name="productId" value="${p.productId}">
-            <input type="text" name="brandId" value="${p.brandId}">
-            <input type="text" name="name" value="${p.productName}">
-            <input type="text" name="price"  value="${p.price}">
-            <input type="text" name="des" value="${p.productDes}">
-            <input type="text" name="count" value="${p.count}">
-            <input type="file" name="url" id="url" onchange="imgChange(this)">
-            <img id="img" width="100">
+        <form action="doBrandAdd" method="post">
+            <input type="text" name="bname" placeholder="品牌名称">
 
-            <input type="submit" value="修改">
+            <input type="text" name="bdes" placeholder="品牌描述">
+            <input type="text" name="btime" placeholder="创建时间">
 
+            <input type="submit" value="添加">
         </form>
     </div>
 
-    <script>
-        function imgChange(obj) {
-
-            /*文件读取器*/
-            var reader = new FileReader();
-            console.log(reader);
-            reader.onload = function (ev) {
-                var img = document.getElementById("img")
-                img.src = ev.target.result;
-            }
-            reader.readAsDataURL(obj.files[0]);
-        }
-    </script>
 </div>
 </body>
 
-
 </html>
-

@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
-  Date: 2018/12/21
-  Time: 20:28
+  Date: 2018/12/26
+  Time: 16:58
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
@@ -74,25 +74,20 @@
 
     </nav>
     <div class="main">
-        <form id="fm">
-            <input type="text" name="text" class="search" value="${text}">
-            <input type="submit" class="search_button" value="搜索">
-        </form>
+
         <section>
             <!--for demo wrap-->
-            <h1>商 品 查 询 列 表</h1>
+            <h1>品 牌 查 询 列 表</h1>
             <div class="tbl-header">
                 <table cellpadding="0" cellspacing="0" border="0">
                     <thead>
                     <tr>
-                        <th>商品编号</th>
                         <th>品牌编号</th>
-                        <th>商品名称</th>
-                        <th>商品图片</th>
-                        <th>商品价格</th>
-                        <th>商品价格</th>
-                        <th>商品库存</th>
+                        <th>品牌名称</th>
+                        <th>品牌描述</th>
+                        <th>创建时间</th>
                         <th>操作</th>
+
 
                     </tr>
                     </thead>
@@ -101,16 +96,13 @@
             <div class="tbl-content">
                 <table cellpadding="0" cellspacing="0" border="0">
                     <tbody>
-                    <c:forEach items="${data.lists}" var="p">
+                    <c:forEach items="${brandLists}" var="b">
                         <tr>
-                            <td>${p.productId}</td>
-                            <td>${p.brandId}</td>
-                            <td>${p.productName}</td>
-                            <td><img src="${p.url} " height="50"></td>
-                            <td>${p.price}</td>
-                            <td>${p.productDes}</td>
-                            <td>${p.count}</td>
-                            <td><a href="doDelet?productId=${p.productId}">删除</a></td>
+                            <td>${b.id}</td>
+                            <td>${b.brandName}</td>
+                            <td>${b.brandDes}</td>
+                            <td>${b.brandTime}</td>
+                            <td><a href="doBrandDelet?id=${b.id}">删除</a></td>
                         </tr>
                     </c:forEach>
 
@@ -118,9 +110,7 @@
                 </table>
             </div>
         </section>
-        <ul class="pagebean">
-            ${data.pageView}
-        </ul>
+
     </div>
 </div>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
@@ -128,8 +118,4 @@
 <script src="js/index.js"></script>
 
 </body>
-
 </html>
-
-
-

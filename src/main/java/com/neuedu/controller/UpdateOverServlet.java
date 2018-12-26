@@ -25,13 +25,16 @@ public class UpdateOverServlet extends HttpServlet {
         double price = Double.parseDouble(req.getParameter("price"));
         String des = req.getParameter("des");
         String url = req.getParameter("url");
-
+        int bId = Integer.parseInt(req.getParameter("brandId"));
+        int count = Integer.parseInt(req.getParameter("count"));
         Product p = new Product();
         p.setPrice(price);
         p.setProductDes(des);
         p.setProductName(name);
         p.setUrl("img/"+url);
         p.setProductId(id);
+        p.setCount(count);
+        p.setBrandId(bId);
         service.update(p);
         resp.sendRedirect("list");
     }

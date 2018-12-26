@@ -20,7 +20,7 @@
 <body>
 <div class="body">
     <nav class="menu">
-        <header>欢迎
+        <header>欢迎${user.username}
             <a href="exit"><img src="img/退出.png" width="30px" /></a>
         </header>
         <ol>
@@ -40,7 +40,7 @@
                         <a href="update">修改</a>
                     </li>
                     <li>
-                        <a href="">查询</a>
+                        <a href="list">查询</a>
                     </li>
                     <li>
                         <a href="delet">删除</a>
@@ -52,16 +52,16 @@
                 <a href="">品牌管理</a>
                 <ul class="menu_hide">
                     <li>
-                        <a href="add">添加</a>
+                        <a href="brandAdd">添加</a>
                     </li>
                     <li>
-                        <a href="update">修改</a>
+                        <a href="brandUpdate">修改</a>
                     </li>
                     <li>
-                        <a href="">查询</a>
+                        <a href="brandList">查询</a>
                     </li>
                     <li>
-                        <a href="delet">删除</a>
+                        <a href="brandDelet">删除</a>
                     </li>
 
                 </ul>
@@ -73,7 +73,7 @@
     <div class="main" style="left: 500px">
         <form action="doAdd" method="post" enctype="multipart/form-data">
             <input type="text" name="name" placeholder="商品名称">
-            <input type="text" name="bid" placeholder="品牌编号">
+            <input type="text" name="bId" placeholder="品牌编号">
 
             <input type="text" name="price" placeholder="商品价格">
             <input type="text" name="des" placeholder="商品描述">

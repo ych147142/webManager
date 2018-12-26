@@ -2,6 +2,7 @@ package com.neuedu.controller;
 
 import com.neuedu.dao.IProductDao;
 import com.neuedu.pojo.Product;
+import com.neuedu.pojo.ResultData;
 import com.neuedu.pojo.User;
 import com.neuedu.service.IProductService;
 import com.neuedu.service.IUserService;
@@ -25,8 +26,9 @@ public class ListServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
         resp.setHeader("content-type","text/html;charset = UTF-8");
-        List<Product> lists =service.getList();
-        req.setAttribute("lists",lists);//添加lists 属性
+        /*第一次访问时 分页情况*/
+        int pageNo = req.getParameter("pageNo")==null?1:Integer.parseInt(req.getParameter("pageNo"));
+        int pageSize=4;
 
         Cookie [] cookies =req.getCookies();
         Map<String,Cookie> maps = CookieUtil.getCookie(cookies);
@@ -34,29 +36,41 @@ public class ListServlet extends HttpServlet {
         String uname =coo.getValue();
         HttpSession session = req.getSession();
         User u = (User) session.getAttribute("user");
-        if (u == null){
-        User user = userService.getOne(uname);
-        session.setAttribute("user",user);
-        req.getRequestDispatcher("WEB-INF/pages/list.jsp").forward(req,resp);
-        }else {
-            req.getRequestDispatcher("WEB-INF/pages/list.jsp").forward(req,resp);
-        }
-    }
+        List<Product> lists =service.getList();
+        req.setAttribute("lists",lists);//添加lists 属性
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding("UTF-8");
 
+        /*模糊查询*/
         String text = req.getParameter("text");
-        if (text == "" ||text.equals(" ")){
-            List<Product> lists = service.getList();
-            req.setAttribute("lists", lists);
-            req.getRequestDispatcher("WEB-INF/pages/list.jsp").forward(req,resp);
-        }else {
-            List<Product> lists =service.getResults(text);
+        if(text==""||text==null){
+            /*list 分页条*/
+            ResultData data  = service.getLists(pageNo,pageSize);
+            data.setUrl("list","");
+            req.setAttribute("data",data);
+            if (u == null){
+                User user = userService.getOne(uname);
+                session.setAttribute("user",user);
+                req.getRequestDispatcher("WEB-INF/pages/list.jsp").forward(req,resp);
+            }else {
+                req.getRequestDispatcher("WEB-INF/pages/list.jsp").forward(req,resp);
+            }
+        }else{
+            ResultData data  = service.getLists(pageNo,pageSize,text);
+            String params="&text="+text;
+            data.setUrl("list",params);
+
             req.setAttribute("text",text);
-            req.setAttribute("lists",lists);
+            req.setAttribute("data",data);
             req.getRequestDispatcher("WEB-INF/pages/list.jsp").forward(req,resp);
         }
+
+
+
+
     }
+
+
+
+
+
 }

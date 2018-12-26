@@ -15,8 +15,8 @@ table{
   background-color: rgba(255,255,255,0.3);
  }
 .tbl-content{
-  height:300px;
-  overflow-x:auto;
+  height:326px;
+  /*overflow-x:auto;*/
   margin-top: 0px;
   border: 1px solid rgba(255,255,255,0.3);
 }
@@ -98,4 +98,56 @@ section{
 }
 ::-webkit-scrollbar-thumb {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.pagebean{
+    list-style: none;
+    position: absolute;
+    right: 51px;
+}
+.pagebean li{
+    float: left;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: solid 1px transparent;
+}
+.pagebean li a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    font-size: 15px;
+}
+.pagebean li:hover{
+    cursor: pointer;
+}
+
+#fm{
+    position: absolute;
+    top: 0;
+    right: 51px;
+}
+.search {
+    width: 180px;
+    height: 27px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid transparent;
+}
+.search_button {
+    width: 38px;
+    height: 29px;
+    font-size: 13px;
+    background: rgba(255,255,255,0.9);
+    margin-left: -5px;
+    margin-top: -4px;
+    padding: 4px;
+
+    border: 1px solid transparent;
+    border-radius: 5px;
+    color: rgb(37, 196, 129);
+    vertical-align: middle;
+}
+.page{
+    width: 80px;
 }

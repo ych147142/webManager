@@ -54,6 +54,8 @@ public class DoAddServlet extends HttpServlet {
         p.setBrandId(bId);
         p.setCount(count);
 
+
+
         service.add(p);
         resp.sendRedirect("list");
     }
