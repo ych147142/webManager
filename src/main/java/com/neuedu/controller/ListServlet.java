@@ -41,6 +41,7 @@ public class ListServlet extends HttpServlet {
 
 
         /*模糊查询*/
+        
         String text = req.getParameter("text");
         if(text==""||text==null){
             /*list 分页条*/

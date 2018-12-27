@@ -148,6 +148,10 @@ section{
     color: rgb(37, 196, 129);
     vertical-align: middle;
 }
-.page{
-    width: 80px;
+.pagebean li:nth-child(1),
+.pagebean li:nth-child(2),
+.pagebean li:nth-last-child(1),
+.pagebean li:nth-last-child(2)
+{
+    width: 60px;
 }

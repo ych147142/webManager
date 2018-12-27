@@ -18,7 +18,13 @@
     <link rel="stylesheet" href="css/style_list.css">
     <link rel="stylesheet" href="css/style_table.css" />
     <style>
-
+        .pagebean li:nth-child(1),
+        .pagebean li:nth-child(2),
+        .pagebean li:nth-last-child(1),
+        .pagebean li:nth-last-child(2)
+        {
+            width: 60px;
+        }
 
 
     </style>
