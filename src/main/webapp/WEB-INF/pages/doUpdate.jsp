@@ -13,6 +13,22 @@
     <link rel="stylesheet" href="css/style_list.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
+<style>
+    select{
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        background-color: rgba(255, 255, 255, 0.2);
+        width: 250px;
+        border-radius: 3px;
+        padding: 10px 15px;
+        margin: 0 auto 10px auto;
+        display: block;
+        text-align: center;
+        font-size: 18px;
+        color: white;
+        transition-duration: 0.25s;
+        font-weight: 300;
+    }
+</style>
 
 <body>
 <div class="body">
@@ -70,12 +86,17 @@
     <div class="main" style="left: 500px">
         <form action="updateOver"  enctype="multipart/form-data">
             <input type="text" readonly="readonly" name="productId" value="${p.productId}">
-            <input type="text" name="brandId" value="${p.brandId}">
+            <select name="brandId">
+                <c:forEach items="${brandLists}" var="b">
+                    <option value="${b.id}" >${b.brandName}</option>
+                </c:forEach>
+
+            </select>
             <input type="text" name="name" value="${p.productName}">
             <input type="text" name="price"  value="${p.price}">
             <input type="text" name="des" value="${p.productDes}">
             <input type="text" name="count" value="${p.count}">
-            <input type="file" name="url" id="url" onchange="imgChange(this)">
+            <input type="file" name="url" id="url" onchange="imgChange(this)"value="${p.url}">
             <img id="img" width="100">
 
             <input type="submit" value="修改">

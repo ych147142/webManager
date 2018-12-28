@@ -40,7 +40,7 @@ public class ProductDaoImpl implements IProductDao {
 
     @Override
     public int update(Product product) {
-        return JdbcUtil.executeUpdate("update product set product_name=?,product_des=?,url=?,price=? count =? brand_id where product_id=?",product.getProductName(),product.getProductDes(),product.getUrl(),product.getPrice(),product.getProductId(),product.getCount(),product.getBrandId());
+        return JdbcUtil.executeUpdate("update product set brand_id=? ,product_name=?,price=?,product_des=?,count =?,url=? where product_id=?",product.getBrandId(),product.getProductName(),product.getPrice(),product.getProductDes(), product.getCount(), product.getUrl(), product.getProductId());
     }
 
     @Override

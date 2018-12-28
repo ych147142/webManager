@@ -103,7 +103,6 @@
                         <th>商品价格</th>
                         <th>商品描述</th>
                         <th>商品库存</th>
-
                     </tr>
                     </thead>
                 </table>

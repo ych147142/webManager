@@ -13,6 +13,20 @@
     <link rel="stylesheet" href="css/style_list.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
+       select{
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            background-color: rgba(255, 255, 255, 0.2);
+            width: 250px;
+            border-radius: 3px;
+            padding: 10px 15px;
+            margin: 0 auto 10px auto;
+            display: block;
+            text-align: center;
+            font-size: 18px;
+            color: white;
+            transition-duration: 0.25s;
+            font-weight: 300;
+        }
 
     </style>
 </head>
@@ -73,7 +87,14 @@
     <div class="main" style="left: 500px">
         <form action="doAdd" method="post" enctype="multipart/form-data">
             <input type="text" name="name" placeholder="商品名称">
-            <input type="text" name="bId" placeholder="品牌编号">
+            <select name="bId">
+                <option >商品品牌</option>
+                <c:forEach items="${brandLists}" var="b">
+                    <option  value="${b.id}">${b.brandName}</option>
+
+
+                </c:forEach>
+            </select>
 
             <input type="text" name="price" placeholder="商品价格">
             <input type="text" name="des" placeholder="商品描述">
@@ -83,9 +104,11 @@
 
             <input type="submit" value="添加">
         </form>
+
     </div>
 
     <script>
+
         function imgChange(obj) {
 
                 /*文件读取器*/
