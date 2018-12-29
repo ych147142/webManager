@@ -74,6 +74,15 @@ nav li {
 	display: block;
 }
 
+.second_menu_hide{
+  list-style: none;
+  display: none;
+  padding-left:12px ;
+}
+.menu-item li:hover .second_menu_hide{
+  display: block;
+}
+
 nav header {
   font-weight: 600;
   display: block;

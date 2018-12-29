@@ -25,7 +25,18 @@
         {
             width: 60px;
         }
+        .menu-item:hover .menu_hide{
+            display: block;
+        }
 
+        .second_menu_hide{
+            list-style: none;
+            display: none;
+            padding-left:12px ;
+        }
+        .menu-item li:hover .second_menu_hide{
+            display: block;
+        }
 
     </style>
 
@@ -59,7 +70,6 @@
                     <li>
                         <a href="delet">删除</a>
                     </li>
-
                 </ul>
             </li>
             <li class="menu-item">
@@ -80,6 +90,23 @@
 
                 </ul>
             </li>
+            <li class="menu-item">
+                <a href="userList">用户管理</a>
+                <ul class="menu_hide">
+                    <li>
+                        <a href="#">用户操作</a>
+                        <ul class="second_menu_hide">
+                            <li><a href="userAdd">添加用户</a></li>
+                            <li><a href="userUpdate">修改用户信息</a></li>
+                            <li><a href="useList">查询用户信息</a></li>
+                            <li><a href="userDelet">删除用户</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">角色管理</a>
+                    </li>
+                </ul>
+            </li>
 
         </ol>
 
@@ -95,15 +122,15 @@
             <div class="tbl-header">
                 <table cellpadding="0" cellspacing="0" border="0">
                     <thead>
-                    <tr>
-                        <th>商品编号</th>
-                        <th>品牌编号</th>
-                        <th>商品名称</th>
-                        <th>商品图片</th>
-                        <th>商品价格</th>
-                        <th>商品描述</th>
-                        <th>商品库存</th>
-                    </tr>
+                        <tr>
+                            <th>商品编号</th>
+                            <th>品牌编号</th>
+                            <th>商品名称</th>
+                            <th>商品图片</th>
+                            <th>商品价格</th>
+                            <th>商品描述</th>
+                            <th>商品库存</th>
+                        </tr>
                     </thead>
                 </table>
             </div>

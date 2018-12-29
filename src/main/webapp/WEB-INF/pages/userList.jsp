@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
-  Date: 2018/12/26
-  Time: 16:58
+  Date: 2018/12/29
+  Time: 15:04
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
@@ -17,6 +17,16 @@
 
     <link rel="stylesheet" href="css/style_list.css">
     <link rel="stylesheet" href="css/style_table.css" />
+    <style>
+        .pagebean li:nth-child(1),
+        .pagebean li:nth-child(2),
+        .pagebean li:nth-last-child(1),
+        .pagebean li:nth-last-child(2)
+        {
+            width: 60px;
+        }
+
+    </style>
 
 </head>
 
@@ -48,7 +58,6 @@
                     <li>
                         <a href="delet">删除</a>
                     </li>
-
                 </ul>
             </li>
             <li class="menu-item">
@@ -91,21 +100,21 @@
 
     </nav>
     <div class="main">
-
+        <form id="fm">
+            <input type="text" name="text" class="search" value="${text}">
+            <input type="submit" class="search_button" value="搜索">
+        </form>
         <section>
             <!--for demo wrap-->
-            <h1>品 牌 查 询 列 表</h1>
+            <h1>员 工 信 息 查 询 列 表</h1>
             <div class="tbl-header">
                 <table cellpadding="0" cellspacing="0" border="0">
                     <thead>
                     <tr>
-                        <th>品牌编号</th>
-                        <th>品牌名称</th>
-                        <th>品牌描述</th>
-                        <th>创建时间</th>
-                        <th>操作</th>
-
-
+                        <th>员工编号</th>
+                        <th>员工名称</th>
+                        <th>密码</th>
+                        <th>邮箱</th>
                     </tr>
                     </thead>
                 </table>
@@ -113,19 +122,21 @@
             <div class="tbl-content">
                 <table cellpadding="0" cellspacing="0" border="0">
                     <tbody>
-                    <c:forEach items="${brandLists}" var="b">
+                    <c:forEach items="${userLists}" var="u">
                         <tr>
-                            <td>${b.id}</td>
-                            <td>${b.brandName}</td>
-                            <td>${b.brandDes}</td>
-                            <td>${b.brandTime}</td>
-                            <td><a href="doBrandDelet?id=${b.id}">删除</a></td>
+                            <td>${u.userId}</td>
+                            <td>${u.username}</td>
+                            <td>${u.password}</td>
+                            <td>${u.email}</td>
                         </tr>
                     </c:forEach>
-
                     </tbody>
                 </table>
             </div>
+            <ul class="pagebean">
+                ${data.pageView}
+            </ul>
+
         </section>
 
     </div>
@@ -135,4 +146,5 @@
 <script src="js/index.js"></script>
 
 </body>
+
 </html>

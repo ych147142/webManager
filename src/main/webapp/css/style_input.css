@@ -15,7 +15,7 @@ html {
       background: linear-gradient(to right, #25c481, #25b7c4)
 }
 
-form , select{
+form {
   position: relative;
   display: inline-block;
   max-width: 700px;
