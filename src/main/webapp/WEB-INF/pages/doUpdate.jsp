@@ -86,13 +86,13 @@
                         <a href="#">用户操作</a>
                         <ul class="second_menu_hide">
                             <li><a href="userAdd">添加用户</a></li>
-                            <li><a href="userUpdate">修改用户信息</a></li>
-                            <li><a href="useList">查询用户信息</a></li>
-                            <li><a href="userDelet">删除用户</a></li>
+                            <li><a href="userUpdate">修改/删除</a></li>
+                            <li><a href="userList">查询用户信息</a></li>
+
                         </ul>
                     </li>
                     <li>
-                        <a href="#">角色管理</a>
+
                     </li>
                 </ul>
             </li>

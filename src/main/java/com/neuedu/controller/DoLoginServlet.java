@@ -19,12 +19,19 @@ public class DoLoginServlet extends HttpServlet {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         User user = service.getOne(username);
+
         if (user == null){
             resp.getWriter().write("2");
 
         }else {
             if (user.getPassword().equals(password)){
-                resp.getWriter().write("1");
+               if (username.equals("ych")){
+                   resp.getWriter().write("1");
+
+               }else {
+                   resp.getWriter().write("4");
+
+               }
 
                 /*添加cookie*/
                 Cookie cookn =new Cookie("username",username);
@@ -37,6 +44,7 @@ public class DoLoginServlet extends HttpServlet {
 
                 /*Session*/
                 HttpSession session = req.getSession();
+                session.setAttribute("user",user);
 
 
         }else {

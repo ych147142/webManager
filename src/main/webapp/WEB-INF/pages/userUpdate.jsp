@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
-  Date: 2018/12/21
-  Time: 20:28
+  Date: 2019/1/1
+  Time: 19:38
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
@@ -17,15 +17,7 @@
 
     <link rel="stylesheet" href="css/style_list.css">
     <link rel="stylesheet" href="css/style_table.css" />
-    <style>
-        .pagebean li:nth-child(1),
-        .pagebean li:nth-child(2),
-        .pagebean li:nth-last-child(1),
-        .pagebean li:nth-last-child(2)
-        {
-            width: 60px;
-        }
-    </style>
+
 </head>
 
 <body>
@@ -99,26 +91,19 @@
 
     </nav>
     <div class="main">
-        <form id="fm">
-            <input type="text" name="text" class="search" value="${text}">
-            <input type="submit" class="search_button" value="搜索">
-        </form>
+
         <section>
             <!--for demo wrap-->
-            <h1>商 品 查 询 列 表</h1>
+            <h1>用 户 查 询 列 表</h1>
             <div class="tbl-header">
                 <table cellpadding="0" cellspacing="0" border="0">
                     <thead>
                     <tr>
-                        <th>商品编号</th>
-                        <th>品牌编号</th>
-                        <th>商品名称</th>
-                        <th>商品图片</th>
-                        <th>商品价格</th>
-                        <th>商品价格</th>
-                        <th>商品库存</th>
+                        <th>员工编号</th>
+                        <th>员工名称</th>
+                        <th>密码</th>
+                        <th>邮箱</th>
                         <th>操作</th>
-
                     </tr>
                     </thead>
                 </table>
@@ -126,26 +111,20 @@
             <div class="tbl-content">
                 <table cellpadding="0" cellspacing="0" border="0">
                     <tbody>
-                    <c:forEach items="${data.lists}" var="p">
+                    <c:forEach items="${userLists}" var="u">
                         <tr>
-                            <td>${p.productId}</td>
-                            <td>${p.brandId}</td>
-                            <td>${p.productName}</td>
-                            <td><img src="${p.url} " height="50"></td>
-                            <td>${p.price}</td>
-                            <td>${p.productDes}</td>
-                            <td>${p.count}</td>
-                            <td><a href="doUpdate?productId=${p.productId}">修改</a></td>
+                            <td>${u.userId}</td>
+                            <td>${u.username}</td>
+                            <td>${u.password}</td>
+                            <td>${u.email}</td>
+                            <td><a href="doUserUpdate?userId=${u.userId}">修改</a>|<a href="doUserDelet?userId=${u.userId}">删除</a></td>
                         </tr>
                     </c:forEach>
-
                     </tbody>
                 </table>
             </div>
-            <ul class="pagebean">
-                ${data.pageView}
-            </ul>
         </section>
+
     </div>
 </div>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
@@ -153,8 +132,4 @@
 <script src="js/index.js"></script>
 
 </body>
-
 </html>
-
-
-

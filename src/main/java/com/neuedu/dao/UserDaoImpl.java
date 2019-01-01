@@ -24,6 +24,7 @@ public class UserDaoImpl implements IUserDao {
             public User RowMapping(ResultSet resultSet) {
                 User u = new User();
                 try {
+                    u.setUserId(resultSet.getInt("id"));
                     u.setUsername(resultSet.getString("username"));
                     u.setPassword(resultSet.getString("password"));
                     u.setEmail(resultSet.getString("email"));
@@ -42,6 +43,7 @@ public class UserDaoImpl implements IUserDao {
             public User RowMapping(ResultSet rs) {
                 User u = new User();
                 try {
+                    u.setUserId(rs.getInt("id"));
                     u.setUsername(rs.getString("username"));
                     u.setPassword(rs.getString("password"));
                     u.setEmail(rs.getString("email"));
@@ -67,6 +69,25 @@ public class UserDaoImpl implements IUserDao {
     @Override
     public int updatePwd(User user) {
         return JdbcUtil.executeUpdate("update user set password = where username = ?",user.getPassword(),user.getUsername());
+    }
+
+    @Override
+    public User getOne(int id) {
+        return JdbcUtil.queryOne("select * from user where id = ?",new RowMap<User>() {
+            @Override
+            public User RowMapping(ResultSet resultSet) {
+                User u = new User();
+                try {
+                    u.setUserId(resultSet.getInt("id"));
+                    u.setUsername(resultSet.getString("username"));
+                    u.setPassword(resultSet.getString("password"));
+                    u.setEmail(resultSet.getString("email"));
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                return u;
+            }
+        }, id);
     }
 
 

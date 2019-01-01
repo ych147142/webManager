@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
-  Date: 2018/12/21
-  Time: 20:28
+  Date: 2019/1/1
+  Time: 21:15
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
@@ -25,7 +25,9 @@
         {
             width: 60px;
         }
+
     </style>
+
 </head>
 
 <body>
@@ -56,7 +58,6 @@
                     <li>
                         <a href="delet">删除</a>
                     </li>
-
                 </ul>
             </li>
             <li class="menu-item">
@@ -75,23 +76,6 @@
                         <a href="brandDelet">删除</a>
                     </li>
 
-                </ul>
-            </li>
-            <li class="menu-item">
-                <a href="userList">用户管理</a>
-                <ul class="menu_hide">
-                    <li>
-                        <a href="#">用户操作</a>
-                        <ul class="second_menu_hide">
-                            <li><a href="userAdd">添加用户</a></li>
-                            <li><a href="userUpdate">修改/删除</a></li>
-                            <li><a href="userList">查询用户信息</a></li>
-
-                        </ul>
-                    </li>
-                    <li>
-
-                    </li>
                 </ul>
             </li>
 
@@ -115,10 +99,8 @@
                         <th>商品名称</th>
                         <th>商品图片</th>
                         <th>商品价格</th>
-                        <th>商品价格</th>
+                        <th>商品描述</th>
                         <th>商品库存</th>
-                        <th>操作</th>
-
                     </tr>
                     </thead>
                 </table>
@@ -135,7 +117,6 @@
                             <td>${p.price}</td>
                             <td>${p.productDes}</td>
                             <td>${p.count}</td>
-                            <td><a href="doUpdate?productId=${p.productId}">修改</a></td>
                         </tr>
                     </c:forEach>
 
@@ -145,7 +126,9 @@
             <ul class="pagebean">
                 ${data.pageView}
             </ul>
+
         </section>
+
     </div>
 </div>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
@@ -155,6 +138,3 @@
 </body>
 
 </html>
-
-
-

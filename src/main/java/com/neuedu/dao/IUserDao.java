@@ -13,4 +13,5 @@ public interface IUserDao {
     public int update(User user);
     public int dele(int id);
     public int updatePwd(User user);
+    public User getOne(int id);
 }

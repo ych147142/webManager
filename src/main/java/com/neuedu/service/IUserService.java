@@ -11,4 +11,5 @@ public interface IUserService {
     public List<User> getList();
     public int update(User user);
     public int dele(int id);
+    public User getOne(int id);
 }

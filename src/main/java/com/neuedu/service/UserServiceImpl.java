@@ -34,4 +34,9 @@ public class UserServiceImpl implements IUserService {
     public int dele(int id) {
         return dao.dele(id);
     }
+
+    @Override
+    public User getOne(int id) {
+        return dao.getOne(id);
+    }
 }

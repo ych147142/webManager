@@ -1,30 +1,39 @@
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
-  Date: 2018/12/21
-  Time: 20:28
+  Date: 2019/1/1
+  Time: 19:14
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
-
 <html>
-
 <head>
-    <meta charset="UTF-8">
-    <title></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <title>Title</title>
     <link rel="stylesheet" href="css/style_list.css">
-    <link rel="stylesheet" href="css/style_table.css" />
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        .pagebean li:nth-child(1),
-        .pagebean li:nth-child(2),
-        .pagebean li:nth-last-child(1),
-        .pagebean li:nth-last-child(2)
-        {
-            width: 60px;
+        select{
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            background-color: rgba(255, 255, 255, 0.2);
+            width: 250px;
+            border-radius: 3px;
+            padding: 10px 15px;
+            margin: 0 auto 10px auto;
+            display: block;
+            text-align: center;
+            font-size: 18px;
+            color: white;
+            transition-duration: 0.25s;
+            font-weight: 300;
         }
+
     </style>
 </head>
 
@@ -98,63 +107,15 @@
         </ol>
 
     </nav>
-    <div class="main">
-        <form id="fm">
-            <input type="text" name="text" class="search" value="${text}">
-            <input type="submit" class="search_button" value="搜索">
+    <div class="main" style="left: 500px">
+        <form action="doUserAdd" method="post" >
+            <input type="text" name="username" placeholder="用户名">
+            <input type="text" name="password" placeholder="密码">
+            <input type="text" name="email" placeholder="邮箱">
+            <input type="submit" value="添加">
         </form>
-        <section>
-            <!--for demo wrap-->
-            <h1>商 品 查 询 列 表</h1>
-            <div class="tbl-header">
-                <table cellpadding="0" cellspacing="0" border="0">
-                    <thead>
-                    <tr>
-                        <th>商品编号</th>
-                        <th>品牌编号</th>
-                        <th>商品名称</th>
-                        <th>商品图片</th>
-                        <th>商品价格</th>
-                        <th>商品价格</th>
-                        <th>商品库存</th>
-                        <th>操作</th>
 
-                    </tr>
-                    </thead>
-                </table>
-            </div>
-            <div class="tbl-content">
-                <table cellpadding="0" cellspacing="0" border="0">
-                    <tbody>
-                    <c:forEach items="${data.lists}" var="p">
-                        <tr>
-                            <td>${p.productId}</td>
-                            <td>${p.brandId}</td>
-                            <td>${p.productName}</td>
-                            <td><img src="${p.url} " height="50"></td>
-                            <td>${p.price}</td>
-                            <td>${p.productDes}</td>
-                            <td>${p.count}</td>
-                            <td><a href="doUpdate?productId=${p.productId}">修改</a></td>
-                        </tr>
-                    </c:forEach>
-
-                    </tbody>
-                </table>
-            </div>
-            <ul class="pagebean">
-                ${data.pageView}
-            </ul>
-        </section>
     </div>
 </div>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-
-<script src="js/index.js"></script>
-
 </body>
-
 </html>
-
-
-
