@@ -25,12 +25,14 @@ public class DoLoginServlet extends HttpServlet {
 
         }else {
             if (user.getPassword().equals(password)){
-               if (username.equals("ych")){
+               if (user.getLv() == 1){
                    resp.getWriter().write("1");
 
-               }else {
+               }else if (user.getLv() == 2){
                    resp.getWriter().write("4");
 
+               }else if (user.getLv() == 3){
+                   resp.getWriter().write("5");
                }
 
                 /*添加cookie*/

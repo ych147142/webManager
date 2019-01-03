@@ -18,11 +18,12 @@ public class DoUserAddServlet extends HttpServlet {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         String email = req.getParameter("email");
-
+        int lv = Integer.parseInt(req.getParameter("lv"));
         User u = new User();
         u.setUsername(username);
         u.setPassword(password);
         u.setEmail(email);
+        u.setLv(lv);
         service.insert(u);
         resp.sendRedirect("userList");
     }

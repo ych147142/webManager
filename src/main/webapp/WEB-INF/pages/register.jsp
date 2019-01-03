@@ -45,6 +45,7 @@
         var pwd;
         var cpwd;
         var email;
+        var lv;
         $(".ac").blur(function () {
             uname =$("#username").val();
             pwd = $("#pwd").val();
@@ -53,7 +54,7 @@
             $.ajax({
                 url:"doRegister",
                 type:"get",
-                data:{"username":uname,"pwd":pwd,"cpwd":cpwd,"email":email},
+                data:{"username":uname,"pwd":pwd,"cpwd":cpwd,"email":email ,"lv":lv},
                 success:function (result) {
                     if (result == 1){
                         $("#message").text("用户名已存在");
@@ -83,7 +84,7 @@
             $.ajax({
                 url:"doInsert",
                 type:"post",
-                data:{"username":uname,"pwd":pwd,"cpwd":cpwd,"email":email},
+                data:{"username":uname,"pwd":pwd,"cpwd":cpwd,"email":email ,"lv":lv},
                 success:function (data) {
                     console.log(data)
                     if (data > 0){

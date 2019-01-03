@@ -19,11 +19,12 @@ public class DoInsertServlet extends HttpServlet {
         String username = req.getParameter("username");
         String pwd = req.getParameter("pwd");
         String email = req.getParameter("email");
-        System.out.println(email);
+
         User u = new User();
         u.setUsername(username);
         u.setPassword(pwd);
         u.setEmail(email);
+        u.setLv(3);
         int result = service.insert(u) ;
         if (result>0){
             resp.getWriter().write("1");

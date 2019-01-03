@@ -14,7 +14,7 @@ import java.util.List;
 public class UserDaoImpl implements IUserDao {
     @Override
     public int insert(User user) {
-        return JdbcUtil.executeUpdate("insert into user(username,password,email) values(?,?,?)",user.getUsername(),user.getPassword(),user.getEmail());
+        return JdbcUtil.executeUpdate("insert into user(username,password,email,lv) values(?,?,?,?)",user.getUsername(),user.getPassword(),user.getEmail(),user.getLv());
     }
 
     @Override
@@ -28,6 +28,7 @@ public class UserDaoImpl implements IUserDao {
                     u.setUsername(resultSet.getString("username"));
                     u.setPassword(resultSet.getString("password"));
                     u.setEmail(resultSet.getString("email"));
+                    u.setLv(resultSet.getInt("lv"));
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -47,6 +48,7 @@ public class UserDaoImpl implements IUserDao {
                     u.setUsername(rs.getString("username"));
                     u.setPassword(rs.getString("password"));
                     u.setEmail(rs.getString("email"));
+                    u.setLv(rs.getInt("lv"));
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -58,7 +60,7 @@ public class UserDaoImpl implements IUserDao {
 
     @Override
     public int update(User user) {
-        return JdbcUtil.executeUpdate("update user set username =?, password=?,email=? where id = ?",user.getUsername(),user.getPassword(),user.getEmail(),user.getUserId());
+        return JdbcUtil.executeUpdate("update user set username =?, password=?,email=? ,lv = ? where id = ?",user.getUsername(),user.getPassword(),user.getEmail(),user.getLv(),user.getUserId());
     }
 
     @Override
@@ -68,7 +70,7 @@ public class UserDaoImpl implements IUserDao {
 
     @Override
     public int updatePwd(User user) {
-        return JdbcUtil.executeUpdate("update user set password = where username = ?",user.getPassword(),user.getUsername());
+        return JdbcUtil.executeUpdate("update user set password = ? where username = ?",user.getPassword(),user.getUsername());
     }
 
     @Override
@@ -82,6 +84,7 @@ public class UserDaoImpl implements IUserDao {
                     u.setUsername(resultSet.getString("username"));
                     u.setPassword(resultSet.getString("password"));
                     u.setEmail(resultSet.getString("email"));
+                    u.setLv(resultSet.getInt("lv"));
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }

@@ -24,7 +24,7 @@ public class DoEditServlet extends HttpServlet {
         User u = new User();
         u.setUsername(username);
         u.setPassword(newpwd);
-        int result = service.insert(u) ;
+        int result = service.updatePwd(u) ;
         if (result>0){
             resp.getWriter().write("1");
         }else {

@@ -104,9 +104,9 @@
         <form action="updateOver"  enctype="multipart/form-data">
             <input type="text" readonly="readonly" name="productId" value="${p.productId}">
             <select name="brandId">
-                <c:forEach items="${brandLists}" var="b">
-                    <option value="${b.id}" >${b.brandName}</option>
-                </c:forEach>
+                    <c:forEach items="${brandLists}" var="b">
+                        <option value="${b.id}" >${b.brandName}</option>
+                    </c:forEach>
 
             </select>
             <input type="text" name="name" value="${p.productName}">

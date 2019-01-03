@@ -12,4 +12,5 @@ public interface IUserService {
     public int update(User user);
     public int dele(int id);
     public User getOne(int id);
+    public int updatePwd(User user);
 }

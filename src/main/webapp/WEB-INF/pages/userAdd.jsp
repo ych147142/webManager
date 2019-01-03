@@ -112,6 +112,11 @@
             <input type="text" name="username" placeholder="用户名">
             <input type="text" name="password" placeholder="密码">
             <input type="text" name="email" placeholder="邮箱">
+            <select name="lv">
+                <option value="3">请选择权限</option>
+                <option value="2" >管理员</option>
+                <option value="3" >用户</option>
+            </select>
             <input type="submit" value="添加">
         </form>
 

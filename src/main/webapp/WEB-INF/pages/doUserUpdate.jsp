@@ -12,6 +12,22 @@
     <title>Title</title>
     <link rel="stylesheet" href="css/style_list.css">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        select{
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            background-color: rgba(255, 255, 255, 0.2);
+            width: 250px;
+            border-radius: 3px;
+            padding: 10px 15px;
+            margin: 0 auto 10px auto;
+            display: block;
+            text-align: center;
+            font-size: 18px;
+            color: white;
+            transition-duration: 0.25s;
+            font-weight: 300;
+        }
+    </style>
 </head>
 
 <body>
@@ -90,8 +106,10 @@
             <input type="text" name="username" value="${u.username}">
             <input type="text" name="password" value="${u.password}">
             <input type="text" name="email" value="${u.email}">
-
-
+            <select name="lv">
+                <option value="2" >管理员</option>
+                <option value="3" >用户</option>
+            </select>
             <input type="submit" value="修改">
 
         </form>

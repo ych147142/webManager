@@ -20,6 +20,7 @@ public class DoRegisterServlet extends HttpServlet {
         String pwd = req.getParameter("pwd");
         String cpwd = req.getParameter("cpwd");
         String email = req.getParameter("email");
+        int lv = 3;
 
         if (username!=""){
             User user = service.getOne(username);

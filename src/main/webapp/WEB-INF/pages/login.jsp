@@ -70,6 +70,10 @@
                         alert("登录成功");
                         window.location.href="http://localhost:8080/webManager/adminList"
                     }
+                    if (data == "5"){
+                        alert("登录成功");
+                        window.location.href="http://localhost:8080/webManager/selectList"
+                    }
                     if (data == "2"){
                         alert("账号不存在")
                     }
